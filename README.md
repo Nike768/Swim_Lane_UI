@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+# SwimLaneUi
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+I've created a React project that implements the swimlane UI with different features. Let me break down the implementation and explain the key parts:
 
-## Available Scripts
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- Drag and Drop functionality.
+- Restricts to move in unspecified Stages.
+- Collecting Necessary data before moving the block.
+- Showing Details When clicked on particular Block.
+- Filtering of the blocks.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technologies Used
 
-### `npm test`
+1. State Management:
+   - I have used React's useState hook to manage the state of blocks, selected block, transition dialog, and filter.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Drag and Drop:
+   - I had utilized the react-beautiful-dnd library to implement drag and drop functionality.
+   - The onDragEnd function handles the logic when a block is dropped into a new lane.
 
-### `npm run build`
+3. Transition Rules:
+   - I had defined transitionRules to specify allowed transitions between states.
+   - When a block is dragged to a new state, we check if the transition is allowed before proceeding.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. Transition Data:
+   - The transitionData object defines the required fields for each state transition.
+   - When a valid transition occurs, we show a dialog to collect the necessary data.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+5. Block History:
+   - Each block maintains a history array that records all transitions, including the data provided during each transition.
+   - When a block is clicked, we show a dialog displaying its transition history.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+6. Filtering:
+   - I have implement a top-level filter input that filters blocks based on their content.
 
-### `npm run eject`
+7. UI Components:
+   - I have used components from the material-ui library for consistent styling and behavior.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Setup Instructions
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+To use this component, you would need to:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Install necessary dependencies:
+   - react-beautiful-dnd for drag and drop functionality
+   - shadcn/ui components
 
-## Learn More
+2. Set up your actual data structure and API calls to replace the mock data.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. Implement proper error handling and validation for user inputs.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+4. Optimize performance for large numbers of blocks, possibly by implementing virtualization.
 
-### Code Splitting
+5. Enhance the UI with additional features like adding new blocks, editing block content, etc.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+6. Implement proper accessibility features to ensure the UI is usable by all users.
 
-### Analyzing the Bundle Size
+This implementation provides a solid foundation for the swimlane UI with the features like drag and drop the task blocks, History of the Blocks, Assignee of the task, Reviewer of the task etc. You can further customize and extend it based on your specific requirements.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- First, you need to download the code or clone this repository into a specific folder on your system.
+- After that, you need to run 'npm install' in that cloned folder  in order to ensure that all the necessary libraries or dependencies are installed properly.
+- After that run 'npm start' in that folder and this SwimLaneUI will run.
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Usage/Examples
 
-### Advanced Configuration
+After the setup is done properly, you can run this. In the user interface, you will be able to manage the different tasks of different type.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+<p align="center">
+<img src="src/image/swimLaneUi.JPG" width="100%">
+</p>
 
-### Deployment
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Contributions are welcome! If you'd like to contribute to the project, please follow these steps:
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Fork the repository.
+- Create a new branch (git checkout -b feature/improvement).
+- Make your changes.
+- Commit your changes (git commit -am 'Add new feature').
+- Push to the branch (git push origin feature/improvement).
+- Create a new Pull Request
